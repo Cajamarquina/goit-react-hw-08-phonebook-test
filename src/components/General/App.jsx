@@ -11,6 +11,7 @@ export const App = () => {
   const handleLogin = () => {
     setLoggedIn(true);
   };
+
   const handleLogout = () => {
     setLoggedIn(false);
   };
@@ -19,6 +20,18 @@ export const App = () => {
     <Router>
       <div>
         <Navigation loggedIn={loggedIn} onLogout={handleLogout} />
+        <Route
+          path="/login"
+          element={<Login onLogin={handleLogin} />}
+        />
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+        <Route
+          path="/contacts"
+          element={<Contacts />}
+        />
         <Outlet />
       </div>
     </Router>
